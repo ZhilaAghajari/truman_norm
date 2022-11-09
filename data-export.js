@@ -309,6 +309,7 @@ User.find()
           temp_post.body = users[i].posts[pp].body;
           temp_post.picture = users[i].posts[pp].picture;
           temp_post.absTime = users[i].posts[pp].absTime;
+          temp_post.postsText = [];
 
           var postStatsIndex = _.findIndex(users[i].postStats, function(o) { return o.postID == users[i].posts[pp].postID; });
           if(postStatsIndex!=-1)
@@ -325,6 +326,7 @@ User.find()
               temp_post.GeneralFlagNumber = users[i].postStats[postStatsIndex].GeneralFlagNumber;
               temp_post.GeneralPostNumber = users[i].postStats[postStatsIndex].GeneralPostNumber;
               temp_post.GeneralCommentNumber = users[i].postStats[postStatsIndex].GeneralCommentNumber;
+              temp_post.postsText.push(users[i].postStats[postStatsIndex].body);
           }
 
           sur_array.push(temp_post);
